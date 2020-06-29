@@ -35,8 +35,7 @@ after_script:
 
 
 - kubectl get pods 
-- cd myhelmchart
-- helm install my-first-helm-chart . 
+- helm install example ./myhelmchart
 - helm list 
 
 
