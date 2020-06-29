@@ -34,4 +34,9 @@ after_script:
 - ./get_helm.sh
 
 
+- kubectl get pods 
+- helm create mychart
+- helm install example ./mychart --set service.type=NodePort
 - helm list 
+
+
