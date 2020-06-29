@@ -8,13 +8,13 @@ env:
 
 before_script:
 # Build Docker Image
-- docker build -t anjali85/helmimg:1.0 .
+- docker build -t anjali85/helmimg:TRAVIS_BUILD_NUMBER .
 
 script:
 # Publish Docker Image to Docker Hub
 - docker images  
 - echo "$dockerpassword" | docker login -u "$dockerusername" --password-stdin
-- docker push anjali85/helmimg:1.0
+- docker push anjali85/helmimg:TRAVIS_BUILD_NUMBER
 
 after_script:
 # Install Kubernetes
