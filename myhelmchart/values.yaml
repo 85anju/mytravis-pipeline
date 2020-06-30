@@ -37,8 +37,9 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 80
+  nodePort: 30007
 
 ingress:
   enabled: false
@@ -77,3 +78,4 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
