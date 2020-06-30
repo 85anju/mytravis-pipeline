@@ -38,5 +38,8 @@ after_script:
 - cd myhelmchart
 - helm install example .
 - helm list 
-
+- minikube_ip=$(minikube ip)
+- echo $minikube_ip
+- kubectl get svc
+- curl http://$minikube_ip:30007/
 
