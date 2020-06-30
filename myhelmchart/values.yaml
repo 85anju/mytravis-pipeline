@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: anjali85/helmimg:1.0
+  repository: anjali85/helmimg
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "$TRAVIS_BUILD_NUMBER"
 
 imagePullSecrets: []
 nameOverride: ""
