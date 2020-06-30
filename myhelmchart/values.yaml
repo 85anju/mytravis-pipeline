@@ -8,7 +8,7 @@ image:
   repository: anjali85/helmimg
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 31
+  tag: helmtag
 
 imagePullSecrets: []
 nameOverride: ""
