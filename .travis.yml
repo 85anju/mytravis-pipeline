@@ -41,5 +41,7 @@ after_script:
 - minikube_ip=$(minikube ip)
 - echo $minikube_ip
 - kubectl get svc
+- sleep 20
+- kubectl get pods
 - curl http://$minikube_ip:30007/
 
