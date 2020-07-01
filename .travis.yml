@@ -7,7 +7,7 @@ addons:
   sonarcloud:
     organization: "85anju" 
     token:
-      secure: "$SONAR_TOKEN"
+      secure: "$SONAR_ENCRYPT"
       
 env:
 - CHANGE_MINIKUBE_NONE_USER=true
