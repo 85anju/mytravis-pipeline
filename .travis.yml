@@ -7,13 +7,14 @@ addons:
   sonarcloud:
     organization: "85anju" 
     token:
-      secure: "$SONAR_TOKEN"
+      secure: "$super_secret_password"
       
 env:
 - CHANGE_MINIKUBE_NONE_USER=true
 
 before_script:
 - docker build -t anjali85/helmimg:helmtag .
+- travis encrypt super_secret_password=654b85a2ac3ea9894185abc540547b33e04698dd --add
 
 script:
 - docker images  
