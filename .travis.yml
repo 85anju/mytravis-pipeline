@@ -7,6 +7,12 @@ services:
 env:
 - CHANGE_MINIKUBE_NONE_USER=true
 
+addons:
+  sonarcloud:
+    organization: "85anju"
+    token:
+      secure: "$NEW_SONAR_TOKEN"
+
 before_script:
 - docker build -t anjali85/helmimg:helmtag .
 # - travis encrypt super_secret_password=654b85a2ac3ea9894185abc540547b33e04698dd --add
@@ -19,7 +25,7 @@ script:
 - docker images  
 - echo "$dockerpassword" | docker login -u "$dockerusername" --password-stdin
 - docker push anjali85/helmimg:helmtag
-- sonar-scanner sonar.login=$SONAR_TOKEN -X 
+- sonar-scanner
 
 after_script:
 - curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.9.0/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
