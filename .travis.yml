@@ -10,6 +10,7 @@ env:
 before_script:
 - docker build -t anjali85/helmimg:helmtag .
 # - travis encrypt super_secret_password=654b85a2ac3ea9894185abc540547b33e04698dd --add
+- gem install travis
 - travis encrypt NEW_SONAR_TOKEN=7bf8c5c19b1586a1f4d602e4c88814cdf7785a39 --add
 - echo NEW_SONAR_TOKEN
 - echo $NEW_SONAR_TOKEN
