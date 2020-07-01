@@ -3,6 +3,12 @@ sudo: required
 services:
 - docker
 
+addons:
+  sonarcloud:
+    organization: "85anju" # the key of the org you chose at step #3
+    token:
+      secure: "$SONAR_TOKEN" # encrypted value of your token
+  
 env:
 - CHANGE_MINIKUBE_NONE_USER=true
 
@@ -13,6 +19,7 @@ script:
 - docker images  
 - echo "$dockerpassword" | docker login -u "$dockerusername" --password-stdin
 - docker push anjali85/helmimg:helmtag
+- sonar-scanner
 
 after_script:
 - curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.9.0/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
