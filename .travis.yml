@@ -11,7 +11,7 @@ addons:
   sonarcloud:
     organization: "85anju"
     token:
-      secure: "pIgwkPB2dlIO66k0hpqrnn0aAY5ZqkLOnGoyg0E8KYLLQJq1UP9EGsC21XzV/2nAtnhSIv3ZSoZOL1QdkMMAFhTWXWbbudzeUGVOxktdo1elXpa255dsxuVs777eF7DupP0LCsQKpYj11E6xecRqR/XET/3aLgK7c/vXG3/iyA8WSEgBnhmfWT8wFj6tWlmXWPV1xqNv8xURjG3lXnuKUiFgY1rkxhbZLjKHOTP1C9ieLzlLzczn8OLCuEmGPVGk1tZKBlcrubC3deZrleOgPAoBPCfDKpeSvzp5qHl1mLDVK0ArmCniul+nerlyM8LETPBqTyy/lftkY42Kj6mfQu3PhM2iv0DHDcs+KoXNw1ysI3dGN+CJ1cKgMfsB80RD1uvVgXA9c9O7jdpcS4LpNXfcaUXa2fc3vpBSO5FKTf5ATN4dLzFcHblRcQIiFN+p/ygl5dt6UkLga6LbXer2u9MgnwF6JcK6anIwrsy9hVLzAAkt5zNIAJSYU9iS7tBdKFnQsMgvcYlSb3aczi55/UZdpShxySl5gL4iCpfJbtvpijll5E9i7lws44k5tOVdtg+ZV/76aBCaenjuyJzqzfp4cVjS2sHdjSAyBAHTD9EHZlQ7GdM5UXcjAZ7NzHwkD5O81uqwUbX0BFYfdjIWvOERrA+comfI8ie3n3V/7Rs="
+      secure: "Tch2leKfmNIRG1eG4n+yLG+B1sQ7um4OUQNUZMPjRBWnnIk/bllnFFQaxbn5kVjOWTc8PG6I1bGNg3wBgQmHrmWf149elrC1FuEupdEUAau4Qijm/1aSmOWBT0re//Ju+R7rtyps+WBv46N2cxUs9nWETb7peALjwraFQbpZFet9cQF5qilK7vJVk7r2qnNw3dZToODkLqHQYN8HSqG77mRTmOP1D7qSKFOX70oYwgH4QQAF1mHjUBIV3kgVZNQbhAQZ/l7UdUQR3NXmuitnJ1VY4suyHoKbO6DjIqPVzAfS9d1jp2EC/TUFqcrbLgHQNITtNRpdRki0jLaGh4QoM0hfUfnrsx7bqSfjo1nww1jgzvDm/0mKab4I0ApiEWeMOHwhtIJquTu04lx0eDi8nOnnZHvevu9iXCHLRtv8tcMOaM8Fh0FKzDEgGOzZh4V8taMP8q/OiktsWFNwsVw3OsM1ZOe7lopaQOji4K/cMmUtOIvtieI0LraSsA8p4TQ8Y8YtuxT53xigWIlwWU9/gGFuySdtjV/CocFiafIk69YHXV7sbSCLetX+wkVGYlT55id6K75jRv9yXZ2PJa1nhGbxK8rblYoOzSnnvPrG/ANNyrzLmjiX29W2F2Tm+K09ETJJB4palZH5VT0AzK/RyLFEUQZKdlV3Vx8zXXa42is="
 
 before_script:
 - docker build -t anjali85/helmimg:helmtag .
@@ -25,7 +25,7 @@ script:
 - docker images  
 - echo "$dockerpassword" | docker login -u "$dockerusername" --password-stdin
 - docker push anjali85/helmimg:helmtag
-- sonar-scanner
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=85anju_mytravis-pipeline
 
 after_script:
 - curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.9.0/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
