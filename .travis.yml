@@ -25,7 +25,7 @@ script:
 - docker images  
 - echo "$dockerpassword" | docker login -u "$dockerusername" --password-stdin
 - docker push anjali85/helmimg:helmtag
-- sonar-scanner -X -Dsonar.login=admin -Dsonar.password=password
+- sonar-scanner 
 
 
 after_script:
