@@ -25,7 +25,8 @@ script:
 - docker images  
 - echo "$dockerpassword" | docker login -u "$dockerusername" --password-stdin
 - docker push anjali85/helmimg:helmtag
-- sonar-scanner
+- sonar-scanner -Dsonar.login=admin -Dsonar.password=password
+
 
 after_script:
 - curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.9.0/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
