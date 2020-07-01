@@ -32,8 +32,10 @@ after_script:
 
 - kubectl get pods 
 - cd myhelmchart
-- helm install example .
+- helm install demo .
 - helm list 
+
+
 - minikube_ip=$(minikube ip)
 - echo $minikube_ip
 - kubectl get svc
