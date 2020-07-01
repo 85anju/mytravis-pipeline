@@ -11,15 +11,15 @@ addons:
   sonarcloud:
     organization: "85anju"
     token:
-      secure: "$NEW_SONAR_TOKEN"
+      secure: "pIgwkPB2dlIO66k0hpqrnn0aAY5ZqkLOnGoyg0E8KYLLQJq1UP9EGsC21XzV/2nAtnhSIv3ZSoZOL1QdkMMAFhTWXWbbudzeUGVOxktdo1elXpa255dsxuVs777eF7DupP0LCsQKpYj11E6xecRqR/XET/3aLgK7c/vXG3/iyA8WSEgBnhmfWT8wFj6tWlmXWPV1xqNv8xURjG3lXnuKUiFgY1rkxhbZLjKHOTP1C9ieLzlLzczn8OLCuEmGPVGk1tZKBlcrubC3deZrleOgPAoBPCfDKpeSvzp5qHl1mLDVK0ArmCniul+nerlyM8LETPBqTyy/lftkY42Kj6mfQu3PhM2iv0DHDcs+KoXNw1ysI3dGN+CJ1cKgMfsB80RD1uvVgXA9c9O7jdpcS4LpNXfcaUXa2fc3vpBSO5FKTf5ATN4dLzFcHblRcQIiFN+p/ygl5dt6UkLga6LbXer2u9MgnwF6JcK6anIwrsy9hVLzAAkt5zNIAJSYU9iS7tBdKFnQsMgvcYlSb3aczi55/UZdpShxySl5gL4iCpfJbtvpijll5E9i7lws44k5tOVdtg+ZV/76aBCaenjuyJzqzfp4cVjS2sHdjSAyBAHTD9EHZlQ7GdM5UXcjAZ7NzHwkD5O81uqwUbX0BFYfdjIWvOERrA+comfI8ie3n3V/7Rs="
 
 before_script:
 - docker build -t anjali85/helmimg:helmtag .
 # - travis encrypt super_secret_password=654b85a2ac3ea9894185abc540547b33e04698dd --add
-- gem install travis
-- travis encrypt NEW_SONAR_TOKEN=7bf8c5c19b1586a1f4d602e4c88814cdf7785a39 --add
-- echo NEW_SONAR_TOKEN
-- echo $NEW_SONAR_TOKEN
+# - gem install travis
+# - travis encrypt NEW_SONAR_TOKEN=7bf8c5c19b1586a1f4d602e4c88814cdf7785a39 --add
+# - echo NEW_SONAR_TOKEN
+# - echo $NEW_SONAR_TOKEN
 
 script:
 - docker images  
